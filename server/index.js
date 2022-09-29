@@ -13,6 +13,8 @@ import Auth from "./api/auth";
 import Food from "./api/food";
 import Restaurant from "./api/restaurant";
 import User from "./api/user";
+import Menu from "./api/menu";
+import Order from "./api/order";
 
 dotenv.config();
 
@@ -35,7 +37,9 @@ zomato.get('/', (req, res) => {
 zomato.use("/auth", Auth);
 zomato.use("/food", Food);
 zomato.use("/restaurant", Restaurant);
-zomato.use("/user", passport.authenticate("jwt", {session: false}), User);
+zomato.use("/user", User);
+zomato.use("/menu", Menu);
+zomato.use("/order", Order);
 
 const PORT = 4000;
 
