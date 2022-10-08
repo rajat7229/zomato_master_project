@@ -23,7 +23,7 @@ Router.post('/', upload.single('file'), async (req, res) => {
     try{
         const file = req.file;
         const bucketOptions = {
-            Bucket: "zomato-master-project",
+            Bucket: "zomato-master-project-rajat",
             Key: file.originalname,
             Body: file.buffer,
             ContentType: file.mimetype,
