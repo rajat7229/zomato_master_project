@@ -2,7 +2,8 @@ import express from "express";
 import dotenv from "dotenv";
 import passport from "passport";
 import session from "express-session";
-
+import cors from 'cors';
+import helmet from 'helmet';
 
 // Private route authorization config
 import privateRouteConfig from "./config/route.config";
@@ -25,6 +26,8 @@ const zomato = express();
 // adding additional passport configuration
 privateRouteConfig(passport);
 
+zomato.use(cors({origin: "http://localhost:3000"}));
+zomato.use(helmet());
 zomato.use(express.json());
 zomato.use(session({secret: "ZomatoApp"}));
 zomato.use(passport.initialize());
