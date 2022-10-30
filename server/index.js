@@ -7,6 +7,8 @@ import helmet from 'helmet';
 
 // Private route authorization config
 import privateRouteConfig from "./config/route.config";
+import googleAuthConfig from "./config/google.config";
+
 
 import ConnectDB from "./database/connection";
 
@@ -25,6 +27,8 @@ const zomato = express();
 
 // adding additional passport configuration
 privateRouteConfig(passport);
+// googleAuthConfig(passport);
+
 
 zomato.use(cors({origin: "http://localhost:3000"}));
 zomato.use(helmet());
