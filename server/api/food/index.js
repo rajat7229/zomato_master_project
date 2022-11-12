@@ -19,7 +19,7 @@ Router.get('/r/:_id', async (req, res) => {
     try{
         const {_id} = req.params;
         await validateId(req.params);
-        const fooods = await FoodModel.find({
+        const foods = await FoodModel.find({
             restaurant: _id
         });
         return res.json({foods});

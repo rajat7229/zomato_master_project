@@ -9,7 +9,7 @@ Router.get("/", async (req, res) => {
   try {
     // http://localhost:4000/restaurant/?city=ncr
     const { city } = req.query;
-    await ValidateRestaurantCity(req.query);
+    //await ValidateRestaurantCity(req.query);
     const restaurants = await RestaurantModel.find({ city });
     if (restaurants.length === 0) {
       return res.json({ error: "No restaurant found in this city." });
@@ -47,7 +47,7 @@ Router.get("/search/:searchString", async (req, res) => {
    */
   try {
     const { searchString } = req.params;
-    await ValidateSearchString(req.params);
+    //await ValidateSearchString(req.params);
     const restaurants = await RestaurantModel.find({
       name: { $regex: searchString, $options: "i" },
     });
