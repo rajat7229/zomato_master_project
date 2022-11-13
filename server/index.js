@@ -27,7 +27,7 @@ const zomato = express();
 
 // adding additional passport configuration
 privateRouteConfig(passport);
-// googleAuthConfig(passport);
+googleAuthConfig(passport);
 
 
 zomato.use(cors({origin: "http://localhost:3000"}));
